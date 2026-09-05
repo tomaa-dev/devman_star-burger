@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Restaurant(models.Model):
@@ -120,4 +121,58 @@ class RestaurantMenuItem(models.Model):
         ]
 
     def __str__(self):
-        return f"{self.restaurant.name} - {self.product.name}"
+        return f'{self.restaurant.name} - {self.product.name}'
+
+
+class Order(models.Model):
+    firstname = models.CharField(
+        'имя',
+        max_length=50
+    )
+    lastname = models.CharField(
+        'фамилия',
+        max_length=50
+    )
+    phonenumber = PhoneNumberField(
+        'нормализованный номер владельца',
+        region='RU',
+        blank=False,
+    )
+    address = models.CharField(
+        'адрес',
+        max_length = 200,
+        db_index=True,
+    )
+
+    class Meta:
+        verbose_name = 'заказ'
+        verbose_name_plural = 'заказы'
+
+    def __str__(self):
+        return f'Заказ №{self.id} - {self.firstname} {self.lastname}'
+
+
+class OrderItem(models.Model):
+    order = models.ForeignKey(
+        Order,
+        on_delete=models.CASCADE,
+        related_name='items',
+        verbose_name='заказ',
+    )
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+        verbose_name='продукт',
+    )
+    quantity = models.PositiveIntegerField(
+        'количество',
+        validators=[MinValueValidator(1)],
+    )
+
+    class Meta:
+        verbose_name = 'позиция'
+        verbose_name_plural = 'позиции'
+
+    def __str__(self):
+        return f'{self.product.name} - {self.quantity}'
+    
