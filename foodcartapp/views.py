@@ -3,6 +3,8 @@ from django.templatetags.static import static
 import json
 
 from .models import Product, Order, OrderItem
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 
 def banners_list_api(request):
@@ -57,28 +59,48 @@ def product_list_api(request):
     })
 
 
+@api_view(['GET', 'POST'])
 def register_order(request):
+    if request.method == 'GET':
+        orders = Order.objects.all().prefetch_related('items__product')
+        dumped_orders = []
+        for order in orders:
+            dumped_orders.append({
+                'id': order.id,
+                'firstname': order.firstname,
+                'lastname': order.lastname,
+                'phonenumber': str(order.phonenumber),
+                'address': order.address,
+                'products': [
+                    {
+                        'product': item.product.name,
+                        'quantity': item.quantity,
+                    } for item in order.items.all()
+                ]
+            })
+        return Response(dumped_orders)
+
     try:
         order_data = json.loads(request.body.decode())
+        print("Данные заказа:", order_data)
+        
         order = Order.objects.create(
             firstname=order_data['firstname'],
             lastname=order_data['lastname'],
             phonenumber=order_data['phonenumber'],
             address=order_data['address'],
         )
-        print(order_data)
         
         for product_data in order_data['products']:
             product = Product.objects.get(id=product_data['product'])
-
             OrderItem.objects.create(
                 order=order,
                 product=product,
                 quantity=product_data['quantity'],
             )
-        
-        return JsonResponse({})
+        return JsonResponse({'status': 'ok'}, status=201)
     except ValueError:
         return JsonResponse({
-            'error': 'bla',
-        })
+            'error': 'Некорректный JSON',
+        }, status=400)
+
