@@ -110,6 +110,7 @@ class ProductAdmin(admin.ModelAdmin):
 class OrderItemInline(admin.TabularInline):
     model = OrderItem
     extra = 0
+    fields = ('product', 'quantity', 'price')
     verbose_name = 'Элемент заказа'
     verbose_name_plural = 'Элементы заказа'
 

@@ -81,7 +81,14 @@ class OrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        fields = ['id', 'firstname', 'lastname', 'phonenumber', 'address', 'products']
+        fields = [
+            'id', 
+            'firstname', 
+            'lastname', 
+            'phonenumber', 
+            'address', 
+            'products'
+        ]
 
 
     def validate_products(self, value):
@@ -93,7 +100,7 @@ class OrderSerializer(serializers.ModelSerializer):
 
     def validate_phonenumber(self, value):
         try:
-            parsed = phonenumbers.parse(value, None)
+            parsed = phonenumbers.parse(value, 'RU')
             if not phonenumbers.is_valid_number(parsed):
                 raise serializers.ValidationError('Введен неверный номер телефона')
         except phonenumbers.NumberParseException:
@@ -105,7 +112,12 @@ class OrderSerializer(serializers.ModelSerializer):
         products_data = validated_data.pop('products')
         order = Order.objects.create(**validated_data)
         for item in products_data:
-            OrderItem.objects.create(order=order, **item)
+            OrderItem.objects.create(
+                order=order, 
+                product=item['product'],
+                quantity=item['quantity'],
+                price=item['product'].price,
+            )
         return order
 
 
