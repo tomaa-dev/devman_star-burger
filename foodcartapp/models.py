@@ -151,6 +151,18 @@ class Order(models.Model):
         max_length = 200,
         db_index=True,
     )
+    status = models.CharField(
+        max_length=20,
+        db_index=True,
+        verbose_name='Статус заказа',
+        choices=(
+            ('new', 'Необработанный'),
+            ('assembly', 'В сборке'),
+            ('delivery', 'В пути'),
+            ('completed', 'Доставлен'),
+        ),
+        default='new',
+    )
     objects = OrderQuerySet.as_manager()
 
     class Meta:

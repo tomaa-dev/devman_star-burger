@@ -14,6 +14,7 @@
    <table class="table table-responsive">
     <tr>
       <th>ID заказа</th>
+      <th>Статус</th>
       <th>Цена</th>
       <th>Клиент</th>
       <th>Телефон</th>
@@ -22,8 +23,10 @@
     </tr>
 
     {% for item in order_items %}
+      {% if item.status != 'completed' %}
       <tr>
         <td>{{ item.id }}</td>
+        <td>{{ item.get_status_display}}</td>
         <td>{{ item.total_cost }} ₽</td>
         <td>{{ item.firstname }} {{ item.lastname }}</td>
         <td>{{ item.phonenumber }}</td>
@@ -34,6 +37,7 @@
           </a>
         </td>
       </tr>
+      {% endif %}
     {% endfor %}
    </table>
   </div>
