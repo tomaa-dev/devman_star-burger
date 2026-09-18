@@ -186,6 +186,16 @@ class Order(models.Model):
         blank=True,
         db_index=True,
     )
+    payment = models.CharField(
+        max_length=20,
+        db_index=True,
+        verbose_name='Способ оплаты',
+        choices=(
+            ('online', 'Электронно'),
+            ('cash', 'Наличными при доставке'),
+        ),
+        default='cash',
+    )
     objects = OrderQuerySet.as_manager()
 
     class Meta:
