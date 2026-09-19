@@ -4,8 +4,12 @@ from django.views import View
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import user_passes_test
 
+import requests
+
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import views as auth_views
+from django.conf import settings
+from geopy.distance import distance
 
 from foodcartapp.models import Product, Restaurant, Order, OrderItem, RestaurantMenuItem
 
@@ -111,16 +115,58 @@ def view_orders(request):
         product_to_restaurants.setdefault(item.product_id, set()).add(item.restaurant_id)
         restaurants_by_id[item.restaurant_id] = item.restaurant
 
+    coords_cache = {}
+    def get_coords(address):
+        if address not in coords_cache:
+            coords_cache[address] = fetch_coordinates(
+                settings.YANDEX_GEOCODER_API_KEY, address
+            )
+        return coords_cache[address]
+
     for order in orders:
         product_ids = [item.product_id for item in order.items.all()]
         if product_ids:
             candidates = set(restaurants_by_id.keys())
-            for pid in product_ids:
-                candidates &= product_to_restaurants.get(pid, set())
-            order.available_restaurants = [restaurants_by_id[rid] for rid in candidates]
+            for product_id in product_ids:
+                candidates &= product_to_restaurants.get(product_id, set())
+            restaurants_list = [restaurants_by_id[rid] for rid in candidates]
+            client_coords = get_coords(order.address)
+
+            items = []
+            for restaurant in restaurants_list:
+                rest_coords = get_coords(restaurant.address)
+                dist_km = None
+                if client_coords and rest_coords:
+                    dist_km = distance(client_coords, rest_coords).km
+                items.append((restaurant, dist_km))
+
+            items.sort(key=lambda x: (x[1] is None, x[1] or 0))
+            order.available_restaurants = items
         else:
             order.available_restaurants = []
 
     return render(request, 'order_items.html', context={
         'order_items': orders,
     })
+
+
+def fetch_coordinates(apikey, address):
+    base_url = "https://geocode-maps.yandex.ru/1.x"
+    try:
+        response = requests.get(base_url, params={
+            "geocode": address,
+            "apikey": apikey,
+            "format": "json",
+        })
+        response.raise_for_status()
+        found_places = response.json()['response']['GeoObjectCollection']['featureMember']
+
+        if not found_places:
+            return None
+
+        most_relevant = found_places[0]
+        lon, lat = most_relevant['GeoObject']['Point']['pos'].split(" ")
+        return float(lat), float(lon)
+    except (requests.exceptions.RequestException, KeyError, ValueError, IndexError):
+        return None
+    
