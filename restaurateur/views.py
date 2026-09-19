@@ -12,6 +12,7 @@ from django.conf import settings
 from geopy.distance import distance
 
 from foodcartapp.models import Product, Restaurant, Order, OrderItem, RestaurantMenuItem
+from geocoder.models import Location
 
 
 class Login(forms.Form):
@@ -117,11 +118,26 @@ def view_orders(request):
 
     coords_cache = {}
     def get_coords(address):
-        if address not in coords_cache:
-            coords_cache[address] = fetch_coordinates(
-                settings.YANDEX_GEOCODER_API_KEY, address
-            )
-        return coords_cache[address]
+        if address in coords_cache:
+            return coords_cache[address]
+
+        cached = Location.objects.filter(address=address).first()
+        if cached:
+            coords_cache[address] = (cached.lat, cached.lon)
+            return coords_cache[address]
+
+        coords = fetch_coordinates(settings.YANDEX_GEOCODER_API_KEY, address)
+        if coords is None:
+            coords_cache[address] = None
+            return None
+
+        lat, lon = coords
+        Location.objects.get_or_create(
+            address=address,
+            defaults={'lat': lat, 'lon': lon},
+        )
+        coords_cache[address] = coords
+        return coords
 
     for order in orders:
         product_ids = [item.product_id for item in order.items.all()]
