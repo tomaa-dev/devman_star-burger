@@ -196,6 +196,14 @@ class Order(models.Model):
         ),
         default='cash',
     )
+    restaurant = models.ForeignKey(
+        Restaurant,
+        verbose_name='Ресторан',
+        related_name='orders',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+    )
     objects = OrderQuerySet.as_manager()
 
     class Meta:

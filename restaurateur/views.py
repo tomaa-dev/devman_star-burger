@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import views as auth_views
 
-from foodcartapp.models import Product, Restaurant, Order, OrderItem
+from foodcartapp.models import Product, Restaurant, Order, OrderItem, RestaurantMenuItem
 
 
 class Login(forms.Form):
@@ -91,7 +91,36 @@ def view_restaurants(request):
 
 @user_passes_test(is_manager, login_url='restaurateur:login')
 def view_orders(request):
-    order_items = Order.objects.with_total_cost().prefetch_related('items__product').order_by('id')
+    orders = (
+        Order.objects
+        .with_total_cost()
+        .prefetch_related('items__product')
+        .select_related('restaurant')
+        .order_by('status', 'id')
+    )
+
+    menu_items = (
+        RestaurantMenuItem.objects
+        .filter(availability=True)
+        .select_related('restaurant')
+    )
+
+    product_to_restaurants = {}
+    restaurants_by_id = {}
+    for item in menu_items:
+        product_to_restaurants.setdefault(item.product_id, set()).add(item.restaurant_id)
+        restaurants_by_id[item.restaurant_id] = item.restaurant
+
+    for order in orders:
+        product_ids = [item.product_id for item in order.items.all()]
+        if product_ids:
+            candidates = set(restaurants_by_id.keys())
+            for pid in product_ids:
+                candidates &= product_to_restaurants.get(pid, set())
+            order.available_restaurants = [restaurants_by_id[rid] for rid in candidates]
+        else:
+            order.available_restaurants = []
+
     return render(request, 'order_items.html', context={
-        'order_items': order_items,
+        'order_items': orders,
     })
