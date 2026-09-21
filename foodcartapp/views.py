@@ -62,20 +62,15 @@ def product_list_api(request):
 
 
 class OrderItemSerializer(serializers.ModelSerializer):
-    product = serializers.PrimaryKeyRelatedField(queryset=Product.objects.all())
-    quantity = serializers.IntegerField(min_value=1)
-
     class Meta:
         model = OrderItem
-        fields = ['product', 'quantity']
+        fields = [
+            'product', 
+            'quantity'
+        ]
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    firstname = serializers.CharField(max_length=100, allow_blank=False)
-    lastname = serializers.CharField(max_length=100, allow_blank=False)
-    phonenumber = serializers.CharField(max_length=20, allow_blank=False)
-    address = serializers.CharField(max_length=200, allow_blank=False)
-
     products = OrderItemSerializer(many=True, allow_empty=False, write_only=True)
 
     class Meta:
