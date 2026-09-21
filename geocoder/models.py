@@ -6,17 +6,21 @@ class Location(models.Model):
     address = models.CharField(
         'адрес',
         max_length=200,
-        unique=True,
+        unique=True
     )
     lat = models.FloatField(
         'широта',
+        null=True,
+        blank=True
     )
     lon = models.FloatField(
         'долгота',
+        null=True,
+        blank=True
     )
     requested_at = models.DateTimeField(
         'дата запроса',
-        default=timezone.now,
+        default=timezone.now
     )
 
     class Meta:
