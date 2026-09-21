@@ -10,6 +10,7 @@ from geopy.distance import distance
 from foodcartapp.models import (Order, OrderItem, Product, Restaurant,
                                 RestaurantMenuItem)
 
+from geocoder.models import Location
 from geocoder.services import get_coords
 
 
@@ -114,7 +115,14 @@ def view_orders(request):
         product_to_restaurants.setdefault(item.product_id, set()).add(item.restaurant_id)
         restaurants_by_id[item.restaurant_id] = item.restaurant
 
-    coords_cache = {}
+    all_addresses = {order.address for order in orders}
+    all_addresses |= {restaurant.address for restaurant in restaurants_by_id.values()}
+
+    coords_cache = {
+        loc.address: (loc.lat, loc.lon)
+        for loc in Location.objects.filter(address__in=all_addresses)
+    }
+
     for order in orders:
         product_ids = [item.product_id for item in order.items.all()]
         if product_ids:
