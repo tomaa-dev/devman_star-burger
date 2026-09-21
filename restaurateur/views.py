@@ -1,6 +1,4 @@
-import requests
 from django import forms
-from django.conf import settings
 from django.contrib.auth import authenticate, login
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import user_passes_test
@@ -11,7 +9,8 @@ from geopy.distance import distance
 
 from foodcartapp.models import (Order, OrderItem, Product, Restaurant,
                                 RestaurantMenuItem)
-from geocoder.models import Location
+
+from geocoder.services import get_coords
 
 
 class Login(forms.Form):
@@ -116,28 +115,6 @@ def view_orders(request):
         restaurants_by_id[item.restaurant_id] = item.restaurant
 
     coords_cache = {}
-    def get_coords(address):
-        if address in coords_cache:
-            return coords_cache[address]
-
-        cached = Location.objects.filter(address=address).first()
-        if cached:
-            coords_cache[address] = (cached.lat, cached.lon)
-            return coords_cache[address]
-
-        coords = fetch_coordinates(settings.YANDEX_GEOCODER_API_KEY, address)
-        if coords is None:
-            coords_cache[address] = None
-            return None
-
-        lat, lon = coords
-        Location.objects.get_or_create(
-            address=address,
-            defaults={'lat': lat, 'lon': lon},
-        )
-        coords_cache[address] = coords
-        return coords
-
     for order in orders:
         product_ids = [item.product_id for item in order.items.all()]
         if product_ids:
@@ -145,11 +122,11 @@ def view_orders(request):
             for product_id in product_ids:
                 candidates &= product_to_restaurants.get(product_id, set())
             restaurants_list = [restaurants_by_id[rid] for rid in candidates]
-            client_coords = get_coords(order.address)
+            client_coords = get_coords(order.address, coords_cache=coords_cache)
 
             items = []
             for restaurant in restaurants_list:
-                rest_coords = get_coords(restaurant.address)
+                rest_coords = get_coords(restaurant.address, coords_cache=coords_cache)
                 dist_km = None
                 if client_coords and rest_coords:
                     dist_km = distance(client_coords, rest_coords).km
@@ -163,25 +140,4 @@ def view_orders(request):
     return render(request, 'order_items.html', context={
         'order_items': orders,
     })
-
-
-def fetch_coordinates(apikey, address):
-    base_url = "https://geocode-maps.yandex.ru/1.x"
-    try:
-        response = requests.get(base_url, params={
-            "geocode": address,
-            "apikey": apikey,
-            "format": "json",
-        })
-        response.raise_for_status()
-        found_places = response.json()['response']['GeoObjectCollection']['featureMember']
-
-        if not found_places:
-            return None
-
-        most_relevant = found_places[0]
-        lon, lat = most_relevant['GeoObject']['Point']['pos'].split(" ")
-        return float(lat), float(lon)
-    except (requests.exceptions.RequestException, KeyError, ValueError, IndexError):
-        return None
     
