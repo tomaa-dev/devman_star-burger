@@ -193,8 +193,7 @@ class Order(models.Model):
         choices=(
             ('online', 'Электронно'),
             ('cash', 'Наличными при доставке'),
-        ),
-        default='cash',
+        )
     )
     restaurant = models.ForeignKey(
         Restaurant,
