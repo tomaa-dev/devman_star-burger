@@ -132,17 +132,23 @@ def view_orders(request):
             restaurants_list = [restaurants_by_id[rid] for rid in candidates]
             client_coords = get_coords(order.address, coords_cache=coords_cache)
 
-            items = []
-            for restaurant in restaurants_list:
-                rest_coords = get_coords(restaurant.address, coords_cache=coords_cache)
-                dist_km = None
-                if client_coords and rest_coords:
-                    dist_km = distance(client_coords, rest_coords).km
-                items.append((restaurant, dist_km))
+            if client_coords is None:
+                order.address_not_found = True
+                order.available_restaurants = []
+            else:
+                order.address_not_found = False
+                items = []
+                for restaurant in restaurants_list:
+                    rest_coords = get_coords(restaurant.address, coords_cache=coords_cache)
+                    dist_km = None
+                    if client_coords and rest_coords:
+                        dist_km = distance(client_coords, rest_coords).km
+                    items.append((restaurant, dist_km))
 
-            items.sort(key=lambda x: (x[1] is None, x[1] or 0))
-            order.available_restaurants = items
+                items.sort(key=lambda x: (x[1] is None, x[1] or 0))
+                order.available_restaurants = items
         else:
+            order.address_not_found = False
             order.available_restaurants = []
 
     return render(request, 'order_items.html', context={

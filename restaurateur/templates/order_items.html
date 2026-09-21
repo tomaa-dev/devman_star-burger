@@ -39,6 +39,8 @@
         <td>
           {% if item.restaurant %}
             Готовит {{ item.restaurant.name }}
+          {% elif item.address_not_found %}
+            Адрес не найден
           {% elif item.available_restaurants %}
             <details>
               <summary>Может быть приготовлен ресторанами:</summary>
