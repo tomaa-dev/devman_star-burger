@@ -9,7 +9,8 @@ env.read_env()
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-
+ROLLBAR_ACCESS_TOKEN = env('ROLLBAR_ACCESS_TOKEN')
+ROLLBAR_ENVIRONMENT = env('ROLLBAR_ENVIRONMENT', 'development')
 SECRET_KEY = env('SECRET_KEY')
 YANDEX_GEOCODER_API_KEY = env('YANDEX_GEOCODER_API_KEY')
 
@@ -41,6 +42,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware'
 ]
 
 ROOT_URLCONF = 'star_burger.urls'
@@ -120,7 +122,6 @@ INTERNAL_IPS = [
     '127.0.0.1'
 ]
 
-
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "assets"),
     os.path.join(BASE_DIR, "bundles"),
@@ -131,4 +132,11 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.BrowsableAPIRenderer',
         'rest_framework.renderers.JSONRenderer',
     ]
+}
+
+ROLLBAR = {
+    'access_token': ROLLBAR_ACCESS_TOKEN,
+    'environment': 'development' if DEBUG else 'production',
+    'code_version': env('GIT_SHA', '1.0.0'),
+    'root': BASE_DIR,
 }
