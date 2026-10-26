@@ -9,3 +9,4 @@ geopy==2.4.0
 isort==8.0.1
 requests==2.32.3
 rollbar>=0.16.0
+psycopg2-binary==2.9.13

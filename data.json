@@ -1,0 +1,1769 @@
+[
+{
+  "model": "foodcartapp.restaurant",
+  "pk": 1,
+  "fields": {
+    "name": "Star Burger Арбат",
+    "address": "Москва, ул. Новый Арбат, 15",
+    "contact_phone": "+7 (967) 157-44-13"
+  }
+},
+{
+  "model": "foodcartapp.productcategory",
+  "pk": 3,
+  "fields": {
+    "name": "Бургер"
+  }
+},
+{
+  "model": "foodcartapp.productcategory",
+  "pk": 4,
+  "fields": {
+    "name": "Ролл"
+  }
+},
+{
+  "model": "foodcartapp.product",
+  "pk": 4,
+  "fields": {
+    "name": "Стейкхаус",
+    "category": 3,
+    "price": "268.00",
+    "image": "steak_Qx19TJ0.jpg",
+    "special_status": false,
+    "description": "Стейкхаус – это сочетание нашей фирменной, приготовленной на огне 100% говядины с ломтиками бекона и соусом «Барбекю», майонезом, листьями свежего салата, помидором и хрустящим луком."
+  }
+},
+{
+  "model": "foodcartapp.product",
+  "pk": 5,
+  "fields": {
+    "name": "Лонг Чизбургер",
+    "category": 3,
+    "price": "219.00",
+    "image": "long_chiz_yVTjDQ9.jpg",
+    "special_status": false,
+    "description": "Лонг Чизбургер – эталон в коллекции чизбургеров! Два приготовленных на огне бифштекса с двумя ломтиками слегка расплавленного сыра, хрустящими огурчиками, рубленым луком, горчицей и кетчупом."
+  }
+},
+{
+  "model": "foodcartapp.product",
+  "pk": 6,
+  "fields": {
+    "name": "Тройной Воппер",
+    "category": 3,
+    "price": "369.00",
+    "image": "triple_vopper_n99kvvH.jpg",
+    "special_status": false,
+    "description": "ВОППЕР® — это вкуснейшая приготовленная на огне 100% говядина с сочными помидорами, свежим нарезанным листовым салатом, густым майонезом, хрустящими маринованными огурчиками и свежим луком."
+  }
+},
+{
+  "model": "foodcartapp.product",
+  "pk": 7,
+  "fields": {
+    "name": "Беконайзер",
+    "category": 3,
+    "price": "319.00",
+    "image": "beconizer.jpg",
+    "special_status": false,
+    "description": "Встречай самый внушительный бургер в коллекции Бургер Кинг. Много мяса, много бекона и много сыра - все, как ты любишь, и ничего лишнего!"
+  }
+},
+{
+  "model": "foodcartapp.product",
+  "pk": 8,
+  "fields": {
+    "name": "Фиш Ролл",
+    "category": 4,
+    "price": "199.00",
+    "image": "fish_roll.jpg",
+    "special_status": false,
+    "description": "Наш новый ролл с аппетитной котлеткой из филе белой рыбы, с фирменным соусом, маринованными огурчиками и хрустящим салатом. Легкое рыбное удовольствие!"
+  }
+},
+{
+  "model": "foodcartapp.product",
+  "pk": 9,
+  "fields": {
+    "name": "Шримп Ролл",
+    "category": 4,
+    "price": "209.00",
+    "image": "shrimp_roll.jpg",
+    "special_status": false,
+    "description": "Легкий ролл с нежными королевскими креветками в хрустящей панировке, свежий салат Айсберг и ломтик сыра в пшеничной лепешке под фирменным соусом «Кинг»."
+  }
+},
+{
+  "model": "foodcartapp.restaurantmenuitem",
+  "pk": 2,
+  "fields": {
+    "restaurant": 1,
+    "product": 6,
+    "availability": true
+  }
+},
+{
+  "model": "foodcartapp.restaurantmenuitem",
+  "pk": 3,
+  "fields": {
+    "restaurant": 1,
+    "product": 5,
+    "availability": true
+  }
+},
+{
+  "model": "foodcartapp.restaurantmenuitem",
+  "pk": 4,
+  "fields": {
+    "restaurant": 1,
+    "product": 4,
+    "availability": true
+  }
+},
+{
+  "model": "foodcartapp.restaurantmenuitem",
+  "pk": 5,
+  "fields": {
+    "restaurant": 1,
+    "product": 9,
+    "availability": true
+  }
+},
+{
+  "model": "foodcartapp.restaurantmenuitem",
+  "pk": 6,
+  "fields": {
+    "restaurant": 1,
+    "product": 8,
+    "availability": true
+  }
+},
+{
+  "model": "foodcartapp.order",
+  "pk": 1,
+  "fields": {
+    "firstname": "Tomфф",
+    "lastname": "Laipanova",
+    "phonenumber": "+79187145830",
+    "address": "г.Москва, Старый Арбарт, 60",
+    "status": "assembly",
+    "comment": "Без свинины!",
+    "registered_at": "2026-09-18T12:30:12Z",
+    "called_at": "2026-09-18T07:30:46Z",
+    "delivered_at": "2026-09-18T07:50:06Z",
+    "payment": "cash",
+    "restaurant": 1
+  }
+},
+{
+  "model": "foodcartapp.order",
+  "pk": 35,
+  "fields": {
+    "firstname": "Тома",
+    "lastname": "Laipanova",
+    "phonenumber": "+79187145830",
+    "address": "Комсомольская ул., 8",
+    "status": "delivery",
+    "comment": "",
+    "registered_at": "2026-09-18T07:30:10Z",
+    "called_at": "2026-09-19T18:57:23Z",
+    "delivered_at": null,
+    "payment": "cash",
+    "restaurant": 1
+  }
+},
+{
+  "model": "foodcartapp.order",
+  "pk": 36,
+  "fields": {
+    "firstname": "Ivan",
+    "lastname": "Laipanova",
+    "phonenumber": "+79187145830",
+    "address": "Комсомольская ул., 8",
+    "status": "new",
+    "comment": "",
+    "registered_at": "2026-09-19T14:05:38Z",
+    "called_at": null,
+    "delivered_at": null,
+    "payment": "cash",
+    "restaurant": null
+  }
+},
+{
+  "model": "foodcartapp.order",
+  "pk": 37,
+  "fields": {
+    "firstname": "Toma",
+    "lastname": "Laipanova",
+    "phonenumber": "+79187145830",
+    "address": "Комсомольская ул., 10",
+    "status": "new",
+    "comment": "",
+    "registered_at": "2026-09-19T14:25:20.840Z",
+    "called_at": null,
+    "delivered_at": null,
+    "payment": "cash",
+    "restaurant": null
+  }
+},
+{
+  "model": "foodcartapp.order",
+  "pk": 38,
+  "fields": {
+    "firstname": "Toma",
+    "lastname": "Laipanova",
+    "phonenumber": "+79187145830",
+    "address": "Комсомольская ул., 8",
+    "status": "new",
+    "comment": "",
+    "registered_at": "2026-09-19T18:24:24Z",
+    "called_at": null,
+    "delivered_at": null,
+    "payment": "cash",
+    "restaurant": null
+  }
+},
+{
+  "model": "foodcartapp.order",
+  "pk": 39,
+  "fields": {
+    "firstname": "Toma",
+    "lastname": "Laipanova",
+    "phonenumber": "+79187145830",
+    "address": "Комсомольская ул., 8",
+    "status": "new",
+    "comment": "",
+    "registered_at": "2026-09-19T18:49:54Z",
+    "called_at": null,
+    "delivered_at": null,
+    "payment": "cash",
+    "restaurant": 1
+  }
+},
+{
+  "model": "foodcartapp.orderitem",
+  "pk": 10,
+  "fields": {
+    "order": 1,
+    "product": 5,
+    "quantity": 1,
+    "price": "219.00"
+  }
+},
+{
+  "model": "foodcartapp.orderitem",
+  "pk": 16,
+  "fields": {
+    "order": 35,
+    "product": 9,
+    "quantity": 1,
+    "price": "209.00"
+  }
+},
+{
+  "model": "foodcartapp.orderitem",
+  "pk": 17,
+  "fields": {
+    "order": 36,
+    "product": 4,
+    "quantity": 1,
+    "price": "268.00"
+  }
+},
+{
+  "model": "foodcartapp.orderitem",
+  "pk": 18,
+  "fields": {
+    "order": 37,
+    "product": 6,
+    "quantity": 1,
+    "price": "369.00"
+  }
+},
+{
+  "model": "foodcartapp.orderitem",
+  "pk": 19,
+  "fields": {
+    "order": 38,
+    "product": 6,
+    "quantity": 1,
+    "price": "369.00"
+  }
+},
+{
+  "model": "foodcartapp.orderitem",
+  "pk": 20,
+  "fields": {
+    "order": 39,
+    "product": 8,
+    "quantity": 1,
+    "price": "199.00"
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$FIlZbh91v8gVZhHqHZYKXw$5m8beqWCcQgO7SADEM7uo2bpnFP74pNUCE4S6P+cqtc=",
+    "last_login": "2026-09-21T17:20:11.665Z",
+    "is_superuser": true,
+    "username": "haku",
+    "first_name": "",
+    "last_name": "",
+    "email": "lajpanovatoma@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-08-22T19:47:55.893Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$5pN3juswpaACmwa2S7DcaV$LwodY2R0wGZEWXR+SfyKDbxNyOQU6dEt2hyMb6BpGyE=",
+    "last_login": "2026-10-24T21:01:06.763Z",
+    "is_superuser": true,
+    "username": "Toma",
+    "first_name": "",
+    "last_name": "",
+    "email": "lajpanovatoma@mail.ru",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-10-24T21:00:52.771Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "e5ncal3qsh0e9fuaqdqwb5jf3j6xqd56",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEsXaB49O43EHZBqRpISnsy_rtt0oPeJvPezFuEuC4lrD3PYUriLECcfjuK_Mx1B-kR671JbnWZJ5K7Ig_a5bWl_Loc7t9Bib1sa4qAw6ByJByVA2W9MWQhIQJ4ysg0bMEzOwejU6y1ti4ZxHTTmFmLzxe6QTbM:1x2Aon:HHfUaVDfXqIeTGNX-fHMvQOcd_3Rm70inDxA3intPOk",
+    "expire_date": "2026-09-17T17:01:41.314Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ize4wb2f883y25j7v3o3yiol17emo4yr",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEsXaB49O43EHZBqRpISnsy_rtt0oPeJvPezFuEuC4lrD3PYUriLECcfjuK_Mx1B-kR671JbnWZJ5K7Ig_a5bWl_Loc7t9Bib1sa4qAw6ByJByVA2W9MWQhIQJ4ysg0bMEzOwejU6y1ti4ZxHTTmFmLzxe6QTbM:1x8hgZ:8FlBpA4wMaR6sKcTH_rw4ErE9V_TAjsk4ZKjU6_kGNo",
+    "expire_date": "2026-10-05T17:20:11.832Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "kwf13dte6gu0sxxbu8nmyok6mwszj3ez",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEsXaB49O43EHZBqRpISnsy_rtt0oPeJvPezFuEuC4lrD3PYUriLECcfjuK_Mx1B-kR671JbnWZJ5K7Ig_a5bWl_Loc7t9Bib1sa4qAw6ByJByVA2W9MWQhIQJ4ysg0bMEzOwejU6y1ti4ZxHTTmFmLzxe6QTbM:1x38fr:myuwIfSjEuTBaOWcu6ndrX7ZkJuYqXcY3DhQHdf-XYY",
+    "expire_date": "2026-09-20T08:56:27.188Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "o7ybqusz0f9ta8r6ddss4zj8dl4p6qlu",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCYKXRw6d4zkAGmUjVtUtqV8e7apAvd_vfef6nI21rj1mSJY1FnBer0uyXOD5l2UO483Wad52ldxqR3RR-06etc5Hk53L-Dyq1-a_KebZfZoUWENPQmGyYYLPgQ0AfKVMC5wCJoAqVOMhTskRIFdgLq_QG_4Tch:1xKirS:XmnOBPHBVPq4WnRvOA2IZZSyh75wnK_kmd3Qe4Pi5DM",
+    "expire_date": "2026-11-07T21:01:06.804Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "zr34to72x7jggirtrotxp81rhy1m8wb5",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyEsXaB49O43EHZBqRpISnsy_rtt0oPeJvPezFuEuC4lrD3PYUriLECcfjuK_Mx1B-kR671JbnWZJ5K7Ig_a5bWl_Loc7t9Bib1sa4qAw6ByJByVA2W9MWQhIQJ4ysg0bMEzOwejU6y1ti4ZxHTTmFmLzxe6QTbM:1wxrj4:BhdPf08Y4MqM5SphtYIaveqkGpk0IV07oBkfC3MjSMA",
+    "expire_date": "2026-09-05T19:49:58.383Z"
+  }
+},
+{
+  "model": "geocoder.location",
+  "pk": 1,
+  "fields": {
+    "address": "Комсомольская ул., 8",
+    "lat": 54.739456,
+    "lon": 55.992989,
+    "requested_at": "2026-09-19T18:23:25.125Z"
+  }
+},
+{
+  "model": "geocoder.location",
+  "pk": 2,
+  "fields": {
+    "address": "Москва, ул. Новый Арбат, 15",
+    "lat": 55.751933,
+    "lon": 37.593066,
+    "requested_at": "2026-09-19T18:23:25.529Z"
+  }
+},
+{
+  "model": "geocoder.location",
+  "pk": 3,
+  "fields": {
+    "address": "г.Москва, Старый Арбарт, 60",
+    "lat": null,
+    "lon": 37.583095,
+    "requested_at": "2026-09-19T18:23:25Z"
+  }
+},
+{
+  "model": "geocoder.location",
+  "pk": 4,
+  "fields": {
+    "address": "Комсомольская ул., 10",
+    "lat": 54.740433,
+    "lon": 55.994085,
+    "requested_at": "2026-09-19T18:23:26.349Z"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2026-09-03T17:33:02.028Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "product"
+    ],
+    "object_id": "1",
+    "object_repr": "Стейкхаус",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2026-09-03T17:34:26.877Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "product"
+    ],
+    "object_id": "1",
+    "object_repr": "Стейкхаус",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2026-09-03T17:35:28.254Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "restaurant"
+    ],
+    "object_id": "1",
+    "object_repr": "Star Burger Арбат",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2026-09-03T17:36:27.920Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "productcategory"
+    ],
+    "object_id": "1",
+    "object_repr": "Бургер",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2026-09-03T17:36:39.800Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "productcategory"
+    ],
+    "object_id": "2",
+    "object_repr": "Ролл",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2026-09-03T17:37:35.077Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "product"
+    ],
+    "object_id": "1",
+    "object_repr": "Стейкхаус",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0442\\u0435\\u0433\\u043e\\u0440\\u0438\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2026-09-03T17:38:55.254Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "product"
+    ],
+    "object_id": "1",
+    "object_repr": "Стейкхаус",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0410\\u0440\\u0431\\u0430\\u0442 - \\u0421\\u0442\\u0435\\u0439\\u043a\\u0445\\u0430\\u0443\\u0441\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2026-09-04T17:36:33.693Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "product"
+    ],
+    "object_id": "1",
+    "object_repr": "Стейкхаус",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2026-09-04T18:31:15.673Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "product"
+    ],
+    "object_id": "6",
+    "object_repr": "Тройной Воппер",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0440\\u0442\\u0438\\u043d\\u043a\\u0430\", \"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435\"]}}, {\"added\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0410\\u0440\\u0431\\u0430\\u0442 - \\u0422\\u0440\\u043e\\u0439\\u043d\\u043e\\u0439 \\u0412\\u043e\\u043f\\u043f\\u0435\\u0440\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2026-09-04T18:33:17.839Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "product"
+    ],
+    "object_id": "5",
+    "object_repr": "Лонг Чизбургер",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0440\\u0442\\u0438\\u043d\\u043a\\u0430\", \"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435\"]}}, {\"added\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0410\\u0440\\u0431\\u0430\\u0442 - \\u041b\\u043e\\u043d\\u0433 \\u0427\\u0438\\u0437\\u0431\\u0443\\u0440\\u0433\\u0435\\u0440\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2026-09-04T18:34:28.988Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "product"
+    ],
+    "object_id": "4",
+    "object_repr": "Стейкхаус",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u0430\\u0440\\u0442\\u0438\\u043d\\u043a\\u0430\", \"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435\"]}}, {\"added\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0410\\u0440\\u0431\\u0430\\u0442 - \\u0421\\u0442\\u0435\\u0439\\u043a\\u0445\\u0430\\u0443\\u0441\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2026-09-04T18:35:35.771Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "product"
+    ],
+    "object_id": "9",
+    "object_repr": "Шримп Ролл",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435\"]}}, {\"added\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0410\\u0440\\u0431\\u0430\\u0442 - \\u0428\\u0440\\u0438\\u043c\\u043f \\u0420\\u043e\\u043b\\u043b\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2026-09-04T18:35:59.879Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "product"
+    ],
+    "object_id": "8",
+    "object_repr": "Фиш Ролл",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"\\u043f\\u0443\\u043d\\u043a\\u0442 \\u043c\\u0435\\u043d\\u044e \\u0440\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\\u0430\", \"object\": \"Star Burger \\u0410\\u0440\\u0431\\u0430\\u0442 - \\u0424\\u0438\\u0448 \\u0420\\u043e\\u043b\\u043b\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2026-09-13T15:56:58.615Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "1",
+    "object_repr": "Заказ №1 - Toma Laipanova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u043e\\u0440\\u043c\\u0430\\u043b\\u0438\\u0437\\u043e\\u0432\\u0430\\u043d\\u043d\\u044b\\u0439 \\u043d\\u043e\\u043c\\u0435\\u0440 \\u0432\\u043b\\u0430\\u0434\\u0435\\u043b\\u044c\\u0446\\u0430\"]}}, {\"added\": {\"name\": \"\\u043f\\u043e\\u0437\\u0438\\u0446\\u0438\\u044f\", \"object\": \"\\u041b\\u043e\\u043d\\u0433 \\u0427\\u0438\\u0437\\u0431\\u0443\\u0440\\u0433\\u0435\\u0440 - 1\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2026-09-15T18:16:00.758Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "product"
+    ],
+    "object_id": "4",
+    "object_repr": "Стейкхаус",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0426\\u0435\\u043d\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2026-09-15T18:18:10.089Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "32",
+    "object_repr": "Заказ №32 - Tom Laipanova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043c\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2026-09-15T18:21:22.771Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "33",
+    "object_repr": "Заказ №33 - Toma Laipanova",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2026-09-17T06:24:15.718Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "1",
+    "object_repr": "Заказ №1 - Tomффффффф Laipanova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043c\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2026-09-17T06:24:25.780Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "1",
+    "object_repr": "Заказ №1 - Tomфффф Laipanova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043c\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2026-09-17T06:25:36.672Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "34",
+    "object_repr": "Заказ №34 - Tomф Laipanova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043c\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2026-09-17T06:52:33.806Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "1",
+    "object_repr": "Заказ №1 - Tomфф Laipanova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043c\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2026-09-17T06:52:43.733Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "1",
+    "object_repr": "Заказ №1 - Tomфф Laipanova",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2026-09-17T06:57:08.152Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "1",
+    "object_repr": "Заказ №1 - Tomффф Laipanova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043c\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2026-09-17T07:00:53.088Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "1",
+    "object_repr": "Заказ №1 - Tomфф Laipanova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043c\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2026-09-17T07:02:20.941Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "34",
+    "object_repr": "Заказ №34 - Toma Laipanova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0418\\u043c\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2026-09-17T19:20:36.903Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "35",
+    "object_repr": "Заказ №35 - Тома Laipanova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441 \\u0437\\u0430\\u043a\\u0430\\u0437\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2026-09-17T19:22:10.107Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "35",
+    "object_repr": "Заказ №35 - Тома Laipanova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441 \\u0437\\u0430\\u043a\\u0430\\u0437\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2026-09-18T07:10:08.410Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "1",
+    "object_repr": "Заказ №1 - Tomфф Laipanova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041a\\u043e\\u043c\\u043c\\u0435\\u043d\\u0442\\u0430\\u0440\\u0438\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2026-09-18T07:31:57.021Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "1",
+    "object_repr": "Заказ №1 - Tomфф Laipanova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0414\\u0430\\u0442\\u0430 \\u0437\\u0432\\u043e\\u043d\\u043a\\u0430\", \"\\u0414\\u0430\\u0442\\u0430 \\u0434\\u043e\\u0441\\u0442\\u0430\\u0432\\u043a\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2026-09-18T07:32:12.472Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "1",
+    "object_repr": "Заказ №1 - Tomфф Laipanova",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2026-09-18T12:30:01.616Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "29",
+    "object_repr": "Заказ №29 - Тимур Иванов",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u043e\\u0440\\u043c\\u0430\\u043b\\u0438\\u0437\\u043e\\u0432\\u0430\\u043d\\u043d\\u044b\\u0439 \\u043d\\u043e\\u043c\\u0435\\u0440 \\u0432\\u043b\\u0430\\u0434\\u0435\\u043b\\u044c\\u0446\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2026-09-18T12:30:15.414Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "1",
+    "object_repr": "Заказ №1 - Tomфф Laipanova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0414\\u0430\\u0442\\u0430 \\u0440\\u0435\\u0433\\u0438\\u0441\\u0442\\u0440\\u0430\\u0446\\u0438\\u0438\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2026-09-18T18:29:01.024Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "1",
+    "object_repr": "Заказ №1 - Tomфф Laipanova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2026-09-19T06:08:07.588Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "35",
+    "object_repr": "Заказ №35 - Тома Laipanova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "34",
+    "object_repr": "Заказ №34 - Toma Laipanova",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "33",
+    "object_repr": "Заказ №33 - Toma Laipanova",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "32",
+    "object_repr": "Заказ №32 - Tom Laipanova",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "31",
+    "object_repr": "Заказ №31 - Иван Петров",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "30",
+    "object_repr": "Заказ №30 - Василий Васильевич",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "29",
+    "object_repr": "Заказ №29 - Тимур Иванов",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "28",
+    "object_repr": "Заказ №28 - Тимур Иванов",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "27",
+    "object_repr": "Заказ №27 - Тимур Иванов",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "26",
+    "object_repr": "Заказ №26 - Тимур Иванов",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "25",
+    "object_repr": "Заказ №25 - Тимур Иванов",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "24",
+    "object_repr": "Заказ №24 - Тимур Иванов",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "23",
+    "object_repr": "Заказ №23 - Иван Петров",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "22",
+    "object_repr": "Заказ №22 - Иван Петров",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "21",
+    "object_repr": "Заказ №21 - Иван Петров",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "20",
+    "object_repr": "Заказ №20 - Иван Петров",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "19",
+    "object_repr": "Заказ №19 - Иван Петров",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "18",
+    "object_repr": "Заказ №18 - Иван Петров",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "17",
+    "object_repr": "Заказ №17 - Иван Петров",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "16",
+    "object_repr": "Заказ №16 - Иван Петров",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "15",
+    "object_repr": "Заказ №15 - Иван Петров",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "14",
+    "object_repr": "Заказ №14 - Иван Петров",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "13",
+    "object_repr": "Заказ №13 - Иван Петров",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "12",
+    "object_repr": "Заказ №12 - Иван Петров",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "11",
+    "object_repr": "Заказ №11 - Иван Петров",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "10",
+    "object_repr": "Заказ №10 - Иван Петров",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "9",
+    "object_repr": "Заказ №9 - Toma Laipanova",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "8",
+    "object_repr": "Заказ №8 - Toma Laipanova",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "7",
+    "object_repr": "Заказ №7 - Toma Laipanova",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "6",
+    "object_repr": "Заказ №6 - Toma Laipanova",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "5",
+    "object_repr": "Заказ №5 - Toma Laipanova",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "4",
+    "object_repr": "Заказ №4 - Toma Laipanova",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "3",
+    "object_repr": "Заказ №3 - Toma Laipanova",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2026-09-19T06:14:03.683Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "2",
+    "object_repr": "Заказ №2 - Toma Laipanova",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2026-09-19T14:03:22.527Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "35",
+    "object_repr": "Заказ №35 - Тома Laipanova",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 69,
+  "fields": {
+    "action_time": "2026-09-19T14:03:50.275Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "1",
+    "object_repr": "Заказ №1 - Tomфф Laipanova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0410\\u0434\\u0440\\u0435\\u0441\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 70,
+  "fields": {
+    "action_time": "2026-09-19T14:06:21.430Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "36",
+    "object_repr": "Заказ №36 - Ivan Laipanova",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 71,
+  "fields": {
+    "action_time": "2026-09-19T18:50:13.386Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "38",
+    "object_repr": "Заказ №38 - Toma Laipanova",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 72,
+  "fields": {
+    "action_time": "2026-09-19T18:50:37.358Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "39",
+    "object_repr": "Заказ №39 - Toma Laipanova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0420\\u0435\\u0441\\u0442\\u043e\\u0440\\u0430\\u043d\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 73,
+  "fields": {
+    "action_time": "2026-09-19T18:57:25.681Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "35",
+    "object_repr": "Заказ №35 - Тома Laipanova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0414\\u0430\\u0442\\u0430 \\u0437\\u0432\\u043e\\u043d\\u043a\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 74,
+  "fields": {
+    "action_time": "2026-09-19T18:57:37.759Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "foodcartapp",
+      "order"
+    ],
+    "object_id": "1",
+    "object_repr": "Заказ №1 - Tomфф Laipanova",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441 \\u0437\\u0430\\u043a\\u0430\\u0437\\u0430\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 75,
+  "fields": {
+    "action_time": "2026-09-21T17:20:27.889Z",
+    "user": [
+      "haku"
+    ],
+    "content_type": [
+      "geocoder",
+      "location"
+    ],
+    "object_id": "3",
+    "object_repr": "г.Москва, Старый Арбарт, 60 - (None, 37.583095)",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0428\\u0438\\u0440\\u043e\\u0442\\u0430\"]}}]"
+  }
+}
+]
+

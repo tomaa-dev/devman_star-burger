@@ -11,6 +11,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 ROLLBAR_ACCESS_TOKEN = env('ROLLBAR_ACCESS_TOKEN')
 ROLLBAR_ENVIRONMENT = env('ROLLBAR_ENVIRONMENT', 'development')
+DATABASE_PASSWORD = env('DATABASE_PASSWORD')
 SECRET_KEY = env('SECRET_KEY')
 YANDEX_GEOCODER_API_KEY = env('YANDEX_GEOCODER_API_KEY')
 
@@ -87,7 +88,8 @@ MEDIA_URL = '/media/'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='sqlite:////{0}'.format(os.path.join(BASE_DIR, 'db.sqlite3'))
+        default=f'postgres://devman:{DATABASE_PASSWORD}@localhost:5432/star_burger',
+        conn_max_age=600
     )
 }
 
