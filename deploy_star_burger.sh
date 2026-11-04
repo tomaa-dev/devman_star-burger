@@ -15,3 +15,13 @@ python manage.py collectstatic --noinput
 python manage.py migrate
 
 sudo systemctl restart star-burger
+
+export $(grep -v '^#' .env | xargs)
+ROLLBAR_TOKEN=$ROLLBAR_ACCESS_TOKEN
+REVISION=$(git rev-parse HEAD)
+
+curl -s https://api.rollbar.com/api/1/deploy/ \
+  -F access_token=$ROLLBAR_TOKEN \
+  -F environment=production \
+  -F revision=$REVISION \
+  -F local_username=root
