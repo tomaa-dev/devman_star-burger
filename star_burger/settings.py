@@ -138,7 +138,7 @@ REST_FRAMEWORK = {
 
 ROLLBAR = {
     'access_token': ROLLBAR_ACCESS_TOKEN,
-    'environment': 'development' if DEBUG else 'production',
+    'environment': env('ROLLBAR_ENVIRONMENT', default='development'),
     'code_version': env('GIT_SHA', '1.0.0'),
     'root': BASE_DIR,
 }
