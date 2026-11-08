@@ -9,7 +9,7 @@ env.read_env()
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-ROLLBAR_ACCESS_TOKEN = env('ROLLBAR_ACCESS_TOKEN')
+ROLLBAR_ACCESS_TOKEN = env('ROLLBAR_ACCESS_TOKEN', default='')
 ROLLBAR_ENVIRONMENT = env('ROLLBAR_ENVIRONMENT', 'development')
 DATABASE_PASSWORD = env('DATABASE_PASSWORD')
 SECRET_KEY = env('SECRET_KEY')
